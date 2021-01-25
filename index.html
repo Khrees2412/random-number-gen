@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Random Number Generator</title>
+	</head>
+	<style>
+		* {
+			margin: 0;
+			padding: 0;
+			box-sizing: border-box;
+		}
+		div {
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			flex-direction: column;
+			font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande", "Lucida Sans Unicode", Geneva, Verdana,
+				sans-serif;
+		}
+		.page {
+			font-weight: 500;
+			padding: 20px;
+			margin-top: 50px;
+		}
+		button {
+			padding: 1rem 3.5rem;
+			margin: 10px;
+			background-color: navy;
+			color: white;
+			border: 1px solid navy;
+			border-radius: 3px;
+		}
+		button:hover {
+			opacity: 0.7;
+		}
+	</style>
+	<body>
+		<div>
+			<p id="page" class="page">Click to select a random number</p>
+			<button>Run</button>
+		</div>
+	</body>
+	<script>
+		const page = document.getElementById("page");
+		const btn = document.querySelector("button");
+
+		btn.addEventListener("click", event => {
+			event.preventDefault();
+			const gen = setInterval(() => {
+				const num = Math.floor(Math.random() * 999);
+				page.innerHTML = `<p>Your number is ${num}</p`;
+			}, 20);
+			setTimeout(() => {
+				clearInterval(gen);
+			}, 3000);
+		});
+	</script>
+</html>
